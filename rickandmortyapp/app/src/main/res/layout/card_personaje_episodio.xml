@@ -5,7 +5,7 @@
     <data>
         <variable
             name="character"
-            type="com.rockbass2560.rickandmortyapp.models.CharacterView" />
+            type="com.rockbass2560.rickandmortyapp.models.Results" />
     </data>
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -27,17 +27,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageViewCharacter"
                 app:layout_constraintTop_toTopOf="parent"
+                android:textSize="24dp"
+                android:textColor="#1E90FF  "
                 app:layout_constraintVertical_bias="0.508" />
             <ImageView
                 android:id="@+id/imageViewCharacter"
-                android:layout_width="77dp"
-                android:layout_height="62dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="8dp"
                 imageUrl="@{character.image}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>

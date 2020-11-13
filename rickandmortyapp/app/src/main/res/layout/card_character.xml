@@ -116,6 +116,7 @@
                 android:layout_marginBottom="16dp"
                 android:text="@{character.idFirst}"
                 android:textSize="20dp"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 

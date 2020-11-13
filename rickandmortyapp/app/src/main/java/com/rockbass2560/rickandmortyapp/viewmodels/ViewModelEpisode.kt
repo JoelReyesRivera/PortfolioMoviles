@@ -6,20 +6,28 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.rockbass2560.rickandmortyapp.models.CharacterView
 import com.rockbass2560.rickandmortyapp.models.Episode
+import com.rockbass2560.rickandmortyapp.models.Results
 import com.rockbass2560.rickandmortyapp.repositories.RickAndMortyRepository
 import kotlinx.coroutines.launch
 
 class ViewModelEpisode (application: Application) : AndroidViewModel(application) {
 
-    val rickAndMortyListLiveData = MutableLiveData<List<Episode>>()
+    val rickAndMortyListLiveData = MutableLiveData<Episode>()
     private val rickAndMortyRepository = RickAndMortyRepository();
+    val liveDataCharactares = MutableLiveData<List<Results>>()
+
 
     fun getEpisode(url: String) {
             viewModelScope.launch {
-                var listEpisodio = mutableListOf<Episode>()
-                listEpisodio.add(rickAndMortyRepository.getEpisodeByUrl(url))
-                rickAndMortyListLiveData.postValue(listEpisodio)
+                var episode = rickAndMortyRepository.getEpisodeByUrl(url)
+                rickAndMortyListLiveData.postValue(episode)
             }
     }
 
+    fun getCharactersByEpisode(urls : List<String>){
+        viewModelScope.launch {
+            var lista = urls.map{url -> rickAndMortyRepository.getCharacterByUrl(url)}
+            liveDataCharactares.postValue(lista)
+        }
+    }
 }

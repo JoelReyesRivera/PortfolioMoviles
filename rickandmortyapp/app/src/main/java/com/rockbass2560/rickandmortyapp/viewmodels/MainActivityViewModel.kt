@@ -34,9 +34,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
                         rickAndMortyRepository.getEpisodeByUrl(result.episode.first()).id.toString()
                     )
                 }
-
                 rickAndMortyListLiveData.postValue(listCharactersView)
-
                 hasNextCharacters = characterPageRequest.info.next.isNotEmpty()
                 isLoadingCharacters = false
             }
